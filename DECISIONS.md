@@ -322,6 +322,7 @@ EVALUATION: claude
 |---|---|
 | 2026-04-07 | Session 1: founding build — all core framework files, rules, agents, commands, first skill (log-agent-run) |
 | 2026-04-07 | Session 2: all remaining skills, templates/local-claude-md.md, setup.sh |
+| 2026-04-07 | Session 3: full framework audit — 8 bug/redundancy fixes, PHONE TRIGGER hooks removed, GSD agents clarified as plugin-scoped |
 
 ---
 

@@ -27,3 +27,5 @@ Give yourself tools to get context — do not load context upfront. Fetch what y
 | `rules/modes/` | Mode-specific rules (loaded per project) |
 | `memory/MEMORY.md` | Semantic memory index |
 | `agent-logs/` | Audit logs (never auto-loaded) |
+| `templates/` | Project scaffolding templates |
+| `skills/` | Executable skills (global + for-agents) |

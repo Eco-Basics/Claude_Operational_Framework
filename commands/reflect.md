@@ -35,4 +35,5 @@ Push to remote.
 
 ## Step 5 — Clear Applied Entries
 Remove LEARNED.md entries that have been promoted to rules or memory.
-Log the reflect session date in DECISIONS.md under a new `## Reflect Log` section.
+For entries reviewed but not promoted: if they've appeared in 2+ reflect cycles without action, remove them — they're stale noise.
+Log the reflect session date in DECISIONS.md under `## Reflect Log`.

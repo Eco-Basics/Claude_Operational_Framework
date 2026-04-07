@@ -3,6 +3,7 @@ name: agent-evaluator
 description: Scores any worker output against its original task spec on 4 dimensions. Invoke after every non-Claude worker completes a task to verify quality before the output is used or reported.
 tools: [Read, Glob, Grep]
 model: sonnet
+skills: [evaluator-rubric-scorer]
 ---
 
 # Agent Evaluator
@@ -41,7 +42,7 @@ If FLAG or FAIL:
 
 ## Rules
 - Every score must have a one-sentence rationale grounded in the actual output. No scores without evidence.
-- PASS: all dimensions ≥3, no critical side effects
-- FLAG: any dimension scores 2, or side effects present but recoverable
-- FAIL: any dimension scores 1, or critical/unrecoverable side effects
+- PASS: composite ≥3.5 and no dimension ≤2
+- FLAG: composite ≥2.5 or any dimension =2
+- FAIL: composite <2.5 or any dimension =1
 - Never suggest fixes. Evaluate only.

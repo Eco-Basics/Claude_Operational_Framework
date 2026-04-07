@@ -4,7 +4,7 @@ description: Review agent logs for the current period, surface worker performanc
 ---
 
 Read all files in `agent-logs/YYYY-MM/` for the current month.
-Invoke agent-evaluator to synthesize patterns across runs.
+Synthesize patterns directly from the logs — do not invoke agent-evaluator here (it evaluates single runs, not log sets).
 
 Report in sequence:
 1. **Worker performance summary** — scores by worker and task type

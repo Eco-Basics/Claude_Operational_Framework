@@ -22,7 +22,7 @@ Surface to user only when the score reveals something relevant or notable.
 If a worker scores ≤2 on any dimension twice consecutively:
 1. Attempt to improve output quality first — try different prompting strategy, revised task spec, adjusted constraints, or changed input structure
 2. If quality does not improve after adaptation attempts: flag to user, do not reassign that worker to similar tasks until user confirms
-3. Log failure pattern and adaptation attempts to `memory/worker-profiles/{model}.md`
+3. Run `skills/update-worker-profile/` to log failure pattern and adaptation attempts to `memory/worker-profiles/{model}.md`
 
 ## Monthly Audit Decision
 The audit is the final gate: keep or remove the worker from its assigned task type.

@@ -38,5 +38,6 @@ If verdict is HOLD: surface the specific question and return to conversation.
 If verdict is GO: proceed.
 
 ## Step 7 — Route to Project Setup
-If this is a new project: prompt the user to set up a local CLAUDE.md.
-Offer to generate the template with intelligence assignment pre-filled based on the confirmed intent.
+If this is a new project: run `skills/new-project/` with the confirmed intent block fields.
+Pass --goal, --success, --out-of-scope from the confirmed intent. Ask user for --project-dir if not known.
+Read the created CLAUDE.md back and confirm: "Local CLAUDE.md created at {path}. Adjust intelligence assignment if needed."

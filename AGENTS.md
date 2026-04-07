@@ -17,7 +17,7 @@ Surface agent work when the outcome is relevant or notable. A brief summary (wor
 | `context-engineer` | Audits context window health | Sessions feel slow, or before adding new tools/agents |
 
 ## Task Spec Template
-Before dispatching any worker:
+Before dispatching any worker, use this format for Claude's own delegation tracking:
 ```
 WORKER: {name}
 TASK: {one sentence}
@@ -25,6 +25,7 @@ INPUT: {what you're giving it}
 OUTPUT: {exactly what you need back}
 CONSTRAINTS: {what it must not do}
 ```
+For Codex invocations specifically: use `skills/for-agents/codex-spec-formatter/` instead — it produces the structured prompt format Codex performs best with.
 
 ## Worker Profiles
 Persistent performance data per model: `memory/worker-profiles/{model-name}.md`
