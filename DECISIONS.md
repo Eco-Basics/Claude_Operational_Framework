@@ -293,15 +293,19 @@ EVALUATION: claude
 ### Still To Build ⏳
 | Item | Notes |
 |---|---|
-| `skills/update-worker-profile/` | Updates worker .md profile post-audit or post-degradation |
-| `skills/new-project/` | Scaffolds local CLAUDE.md from template, called from /intent |
-| `skills/onboard-worker/` | Creates worker profile stub + updates agent-interface |
-| `skills/for-agents/codex-spec-formatter/` | Formats task into Codex-optimal prompt spec |
-| `skills/for-agents/codex-output-validator/` | Validates Codex output against spec pre-evaluation |
-| `skills/for-agents/evaluator-rubric-scorer/` | Algorithmic 4-dimension scoring for agent-evaluator |
-| Local `CLAUDE.md` template | Project entry point with intelligence assignment schema |
-| `setup.sh` | New machine / VPS bootstrap: clone repo, install plugins, configure env |
 | Git worktrees | Design discussion: parallel Claude sessions on separate branches |
+
+### Completed in Session 2 ✅
+| File | Purpose |
+|---|---|
+| `skills/update-worker-profile/` | Updates worker .md profile post-audit or post-degradation |
+| `skills/new-project/` | Scaffolds local CLAUDE.md from confirmed intent, called from /intent |
+| `skills/onboard-worker/` | Creates worker profile stub when new LLM declared in project |
+| `skills/for-agents/codex-spec-formatter/` | Formats task into Codex-optimal structured prompt spec |
+| `skills/for-agents/codex-output-validator/` | Structural pre-check of Codex output (PASS/FLAG/FAIL) before evaluation |
+| `skills/for-agents/evaluator-rubric-scorer/` | Aggregates 4-dimension scores, computes composite, produces verdict |
+| `templates/local-claude-md.md` | Project CLAUDE.md template with intelligence assignment schema |
+| `setup.sh` | New machine / VPS bootstrap: clone repo, verify python, prepare directories |
 
 ### Skills Architecture Decisions
 - Global skills: `skills/{name}/` — for Claude's own operations
@@ -310,6 +314,14 @@ EVALUATION: claude
 - All scripts: stdout = JSON, stderr = errors, exit 0/1
 - OS handling: `pathlib` throughout, `sys.platform` only where shell differs
 - Proactive principle: Claude proposes new skills when it notices recurring agent capability gaps
+
+---
+
+## Reflect Log
+| Date | Action |
+|---|---|
+| 2026-04-07 | Session 1: founding build — all core framework files, rules, agents, commands, first skill (log-agent-run) |
+| 2026-04-07 | Session 2: all remaining skills, templates/local-claude-md.md, setup.sh |
 
 ---
 
