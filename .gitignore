@@ -1,0 +1,41 @@
+# Claude Framework — track only intentional framework files, ignore all runtime/cache
+
+# Runtime & cache (never commit)
+sessions/
+history.jsonl
+cache/
+telemetry/
+stats-cache.json
+backups/
+shell-snapshots/
+paste-cache/
+file-history/
+mcp-needs-auth-cache.json
+ide/
+debug/
+*.logsettings.local.json
+gsd-file-manifest.json
+session-env/
+
+# Plugin cache (installed_plugins.json is tracked, not the cache)
+plugins/cache/
+plugins/data/
+plugins/install-counts-cache.json
+plugins/known_marketplaces.json
+plugins/marketplaces/
+plugins/blocklist.json
+
+# Personal machine config (machine-specific, never shared)
+settings.local.json
+
+# Claude internal state
+.claude.json
+channels/
+
+# Ignore agent log content in git (too large over time) — track structure only
+# To include logs: remove the next line
+# agent-logs/
+
+# OS artifacts
+.DS_Store
+Thumbs.db
