@@ -27,3 +27,23 @@ If a worker scores ≤2 on any dimension twice consecutively:
 ## Monthly Audit Decision
 The audit is the final gate: keep or remove the worker from its assigned task type.
 It reviews whether adaptation attempts worked. If they didn't: reassign or drop the worker.
+
+## Failure Fallback Chain
+Every failure state has a defined next action. Claude never stalls.
+
+```
+Worker output received
+  ├─ PASS  → proceed
+  ├─ FLAG  → Claude reviews and resolves autonomously
+  │           (accept with caveats / adjust spec and retry once / take over directly)
+  └─ FAIL or hard error
+        ├─ Retry once: same worker, adjusted spec or prompting
+        └─ Still fails → Claude executes directly
+                  └─ Claude also fails → surface to user with full context
+                     (what was attempted, what failed, what is needed to proceed)
+```
+
+**Hard limits:**
+- Max 1 retry per worker per task. No loops.
+- No automatic cross-worker substitution. Fallback ends at Claude, then user.
+- Every failure and retry is logged in `agent-logs/` regardless of outcome.
