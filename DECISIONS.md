@@ -287,13 +287,29 @@ EVALUATION: claude
 | `commands/intent.md` | `/intent` — project flow entry point, leads to local CLAUDE.md setup |
 | `commands/reflect.md` | `/reflect` — framework self-improvement, reviews LEARNED + audit logs |
 
+| `rules/05-session-discipline.md` | End-of-session doc update + cross-session continuity check |
+| `skills/log-agent-run/` | First skill: standardized agent log writer (skill.md + .py, JSON output) |
+
 ### Still To Build ⏳
 | Item | Notes |
 |---|---|
+| `skills/update-worker-profile/` | Updates worker .md profile post-audit or post-degradation |
+| `skills/new-project/` | Scaffolds local CLAUDE.md from template, called from /intent |
+| `skills/onboard-worker/` | Creates worker profile stub + updates agent-interface |
+| `skills/for-agents/codex-spec-formatter/` | Formats task into Codex-optimal prompt spec |
+| `skills/for-agents/codex-output-validator/` | Validates Codex output against spec pre-evaluation |
+| `skills/for-agents/evaluator-rubric-scorer/` | Algorithmic 4-dimension scoring for agent-evaluator |
 | Local `CLAUDE.md` template | Project entry point with intelligence assignment schema |
 | `setup.sh` | New machine / VPS bootstrap: clone repo, install plugins, configure env |
-| Skills | Design discussion needed — what recurring workflows warrant a skill? |
-| Git worktrees | Design discussion needed — parallel session patterns |
+| Git worktrees | Design discussion: parallel Claude sessions on separate branches |
+
+### Skills Architecture Decisions
+- Global skills: `skills/{name}/` — for Claude's own operations
+- Agent-specific skills: `skills/for-agents/{agent-name}-{skill-name}/` — injected via agent `skills:` frontmatter
+- Naming: `{agent-name}-{skill-name}` for agent-specific to avoid collisions
+- All scripts: stdout = JSON, stderr = errors, exit 0/1
+- OS handling: `pathlib` throughout, `sys.platform` only where shell differs
+- Proactive principle: Claude proposes new skills when it notices recurring agent capability gaps
 
 ---
 
