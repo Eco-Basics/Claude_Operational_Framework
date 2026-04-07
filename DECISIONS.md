@@ -327,8 +327,8 @@ EVALUATION: claude
 
 ## Open Questions / Future Considerations
 - **Skills vs commands:** Skills run inline (shared context), commands can fork. What recurring workflows are better as skills?
-- **Git worktrees:** Spinning up parallel Claude sessions on separate branches — useful for research + implementation running simultaneously. Discuss pattern.
-- **GSD agents:** 16 GSD agents currently installed. Which are actually used? Candidates for removal to reduce roster bloat. Context-engineer can audit this.
+- **Git worktrees:** Known pattern — `git worktree add ../claude-research branch-name` spins a second working directory for a parallel Claude session. Use on-demand when a project needs simultaneous research + implementation workstreams. Not a default. No further build needed.
+- **GSD agents:** 16 GSD agents currently installed. Which are actually used? Candidates for removal to reduce roster bloat. Run context-engineer to audit.
 - **MCP audit:** Which MCPs are earning their context weight? Run context-engineer after setup to assess.
-- **`rules/05-dynamic-posture.md`:** Possibly worth adding explicit guidance on how Claude shifts posture by demand type (research vs implementation vs orchestration). Currently implicit — may need to be explicit.
-- **Worker onboarding flow:** When a new LLM worker is added to a project, what's the onboarding checklist? (add to `rules/02-agent-interface.md`, create worker profile stub, define task spec format quirks)
+- **`rules/05-dynamic-posture.md`:** Left implicit — intent capture + intelligence assignment already route correctly. Revisit if behavioral drift observed.
+- ~~**Worker onboarding flow**~~ — **Resolved.** Checklist added to `rules/02-agent-interface.md` § New Worker Onboarding Checklist.
