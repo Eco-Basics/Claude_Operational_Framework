@@ -283,12 +283,13 @@ EVALUATION: claude
 | `agents/context-engineer.md` | Context window health audit |
 | `commands/audit.md` | `/audit` — review logs, propose improvements |
 
-### Still To Build ⏳
-| Item | Notes |
-|---|---|
 | `commands/eval.md` | `/eval` — execution lockout, pure delegation, no Claude self-execution |
 | `commands/intent.md` | `/intent` — project flow entry point, leads to local CLAUDE.md setup |
 | `commands/reflect.md` | `/reflect` — framework self-improvement, reviews LEARNED + audit logs |
+
+### Still To Build ⏳
+| Item | Notes |
+|---|---|
 | Local `CLAUDE.md` template | Project entry point with intelligence assignment schema |
 | `setup.sh` | New machine / VPS bootstrap: clone repo, install plugins, configure env |
 | Skills | Design discussion needed — what recurring workflows warrant a skill? |
