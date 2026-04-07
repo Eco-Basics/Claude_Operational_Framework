@@ -22,3 +22,6 @@ Last updated: {DATE}
 
 ## Notes
 (running notes — updated each session per rules/05-session-discipline.md)
+
+---
+> Session log: see LOG.md

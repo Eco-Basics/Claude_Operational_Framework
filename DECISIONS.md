@@ -290,6 +290,41 @@ EVALUATION: claude
 | `rules/05-session-discipline.md` | End-of-session doc update + cross-session continuity check |
 | `skills/log-agent-run/` | First skill: standardized agent log writer (skill.md + .py, JSON output) |
 
+### Completed in Session 4 ✅
+| File | Purpose |
+|---|---|
+| `rules/06-log-protocol.md` | Per-project LOG.md — session log for fast context restoration |
+| `rules/05-session-discipline.md` | Updated — LOG.md added to end-of-session checklist + LOG.md named explicitly in cross-session continuity check |
+| `templates/local-claude-md.md` | Updated — pointer to LOG.md added |
+| `commands/intent.md` | Updated — Step 8 added: create starter LOG.md on new project setup |
+| `skills/new-project/skill.md` | Updated — On Success now creates LOG.md alongside CLAUDE.md |
+| `settings.json` | Plugins trimmed 9→4; SLACK_BOT_TOKEN removed |
+
+### LOG.md Design Decisions
+- Two sections: `## Active` (tight, current) and `## Archived` (one-liners, resolved)
+- No hard line limit — judgment-based pruning, Archived compresses if bloated
+- Claude maintains proactively; user asks "is everything logged?" before /clear
+- Framework-level decisions stay in DECISIONS.md; LOG.md is project-only
+
+### Context Audit — Session 4 (2026-04-07)
+**Health score: 62/100 at start, improved by plugin trim**
+
+Findings actioned:
+- 3 LOG.md integration gaps fixed (intent.md, session-discipline, new-project)
+- Plugins reduced 9→4: removed huggingface-skills, slack, discord, ralph-loop, mcp-server-dev
+- SLACK_BOT_TOKEN removed from settings.json (credential hygiene)
+
+Findings deferred:
+- GSD agents (19 total, warning threshold): UI-specific agents flagged as project-local candidates — no change made, monitoring
+- Agent log compliance: zero logs exist — expected (no workers dispatched yet), not a protocol failure
+- MCP servers: 2 actual servers (chrome-devtools, telegram) — healthy
+
+Plugin decisions recorded:
+- `codex` — kept: load-bearing for Codex worker delegation (subagent_type registration)
+- `plugin-dev` — kept: framework self-improvement, skill/agent authoring
+- `claude-md-management` — kept: active CLAUDE.md tooling
+- `frontend-design` — kept: UI work
+
 ### Still To Build ⏳
 | Item | Notes |
 |---|---|
@@ -323,13 +358,14 @@ EVALUATION: claude
 | 2026-04-07 | Session 1: founding build — all core framework files, rules, agents, commands, first skill (log-agent-run) |
 | 2026-04-07 | Session 2: all remaining skills, templates/local-claude-md.md, setup.sh |
 | 2026-04-07 | Session 3: full framework audit — 8 bug/redundancy fixes, PHONE TRIGGER hooks removed, GSD agents clarified as plugin-scoped |
+| 2026-04-07 | Session 4: added LOG.md protocol, fixed 3 integration gaps, ran context audit — plugins 9→4, credential hygiene, resolved GSD+MCP open questions |
 
 ---
 
 ## Open Questions / Future Considerations
 - **Skills vs commands:** Skills run inline (shared context), commands can fork. What recurring workflows are better as skills?
 - **Git worktrees:** Known pattern — `git worktree add ../claude-research branch-name` spins a second working directory for a parallel Claude session. Use on-demand when a project needs simultaneous research + implementation workstreams. Not a default. No further build needed.
-- **GSD agents:** 16 GSD agents currently installed. Which are actually used? Candidates for removal to reduce roster bloat. Run context-engineer to audit.
-- **MCP audit:** Which MCPs are earning their context weight? Run context-engineer after setup to assess.
+- ~~**GSD agents:**~~ **Resolved (Session 4).** 19 agents audited. UI-specific agents (gsd-ui-auditor, gsd-ui-checker, gsd-ui-researcher, gsd-user-profiler) flagged as project-local candidates but no removal actioned — they are GSD plugin-managed, not framework-managed. Monitor usage.
+- ~~**MCP audit:**~~ **Resolved (Session 4).** 2 actual MCP servers (chrome-devtools, telegram). Plugins trimmed 9→4. Healthy.
 - **`rules/05-dynamic-posture.md`:** Left implicit — intent capture + intelligence assignment already route correctly. Revisit if behavioral drift observed.
 - ~~**Worker onboarding flow**~~ — **Resolved.** Checklist added to `rules/02-agent-interface.md` § New Worker Onboarding Checklist.

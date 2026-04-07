@@ -1,0 +1,62 @@
+{
+  "env": {},
+  "permissions": {
+    "allow": [
+      "mcp__pencil"
+    ]
+  },
+  "hooks": {
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"C:/Users/mithu/.claude/hooks/codex-delegation-check.js\" \"$CLAUDE_HOOK_INPUT\""
+          }
+        ]
+      }
+    ],
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"C:/Users/mithu/.claude/hooks/gsd-check-update.js\""
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"C:/Users/mithu/.claude/hooks/gsd-context-monitor.js\""
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "powershell.exe -Command \"(New-Object System.Media.SoundPlayer 'C:\\Windows\\Media\\chimes.wav').PlaySync()\"",
+            "async": true
+          }
+        ]
+      }
+    ]
+  },
+  "statusLine": {
+    "type": "command",
+    "command": "node \"C:/Users/mithu/.claude/hooks/gsd-statusline.js\""
+  },
+  "enabledPlugins": {
+    "claude-md-management@claude-plugins-official": true,
+    "plugin-dev@claude-plugins-official": true,
+    "codex@openai-codex": true,
+    "frontend-design@claude-plugins-official": true
+  },
+  "skipDangerousModePermissionPrompt": true
+}

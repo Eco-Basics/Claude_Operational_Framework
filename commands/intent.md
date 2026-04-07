@@ -41,3 +41,16 @@ If verdict is GO: proceed.
 If this is a new project: run `skills/new-project/` with the confirmed intent block fields.
 Pass --goal, --success, --out-of-scope from the confirmed intent. Ask user for --project-dir if not known.
 Read the created CLAUDE.md back and confirm: "Local CLAUDE.md created at {path}. Adjust intelligence assignment if needed."
+
+## Step 8 — Create Starter LOG.md
+Create `{project-dir}/LOG.md` with empty structure:
+
+```markdown
+# Log — {Project Name}
+
+## Active
+
+## Archived
+```
+
+Confirm: "LOG.md created at {path}."

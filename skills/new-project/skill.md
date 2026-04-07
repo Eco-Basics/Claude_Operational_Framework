@@ -58,6 +58,15 @@ If CLAUDE.md already exists: `action: skipped`, no overwrite.
 
 ## On Success
 Read the created file back. Confirm to user: "Local CLAUDE.md created at {path}. Intelligence assignment is pre-filled — adjust workers if needed."
+Then create `{project-dir}/LOG.md` with starter structure:
+```markdown
+# Log — {project_name}
+
+## Active
+
+## Archived
+```
+Confirm: "LOG.md created at {path}."
 
 ## On Failure
 Surface the error. Do not proceed with project setup until CLAUDE.md exists.
